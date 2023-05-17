@@ -14,8 +14,8 @@ public class stepDefinitions {
 
     @Given("I launch chrome browser")
     public void iLaunchChromeBrowser() {
-        System.setProperty("webDriver.chrome.driver", "\"D:\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe\"" );
-        driver=new ChromeDriver();
+        System.setProperty("webDriver.chrome.driver", "\"D:\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe\"");
+        driver = new ChromeDriver();
     }
 
     @When("I navigate to amazon.ca")
