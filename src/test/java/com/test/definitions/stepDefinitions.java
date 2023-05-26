@@ -109,11 +109,9 @@ public class stepDefinitions {
         boolean kindleExists = driver.findElements(By.xpath("/html/body/div[3]/div[2]/div/ul[5]/li[3]/a")).size() > 0;
         if (!kindleExists){
             driver.findElement(By.xpath("/html/body/div[7]/div[2]/div/ul[4]/li[3]/a")).click();
-            driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/ul[5]/li[3]/a")).click();
         }
         else {
             driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/ul[5]/li[3]/a")).click();
-            driver.findElement(By.xpath("/html/body/div[7]/div[2]/div/ul[4]/li[3]/a")).click();
         }
         logger.info("Click on Kindle Options under Kindle E-Readers");
         logger.info("Wait for Kindle Page to render");
