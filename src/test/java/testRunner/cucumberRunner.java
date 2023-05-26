@@ -2,6 +2,7 @@ package testRunner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -9,6 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources",
         glue = "com.test.definitions"
 )
+
 public class cucumberRunner {
 
 }
