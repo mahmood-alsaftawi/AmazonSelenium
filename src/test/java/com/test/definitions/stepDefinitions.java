@@ -6,23 +6,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.By;
-
 
 import java.time.Duration;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class stepDefinitions {
 
@@ -97,7 +90,6 @@ public class stepDefinitions {
     @Then("click on Kindle")
     public void clickOnKindle() {
         List<WebElement> kindleOptions = driver.findElements(By.className("hmenu-item"));
-/*      WebElement kindle = driver.findElement(By.xpath("//div[@id='hmenu-content']/ul/li[10]/a/div"));*/
         WebElement kindle = driver.findElement(By.xpath("//div[contains(text(),'Kindle')]"));
         kindle.click();
         try {
@@ -113,8 +105,6 @@ public class stepDefinitions {
     @Then("click on Kindle under Kindle E-Readers")
     public void clickOnKindleUnderKindleEReaders() {
         driver.findElement(By.xpath("//a[@class='hmenu-item' and text()='Kindle']")).click();
-/*        driver.findElement(By.xpath("//div[@id='hmenu-content']/ul[5]/li[3]/a[1]")).click();
-        driver.findElement(By.xpath("//*[@id=\"hmenu-content\"]/ul[4]/li[3]/a")).click();*/
         logger.info("Click on Kindle Options under Kindle E-Readers");
         try {
             Thread.sleep(3000);
@@ -140,6 +130,8 @@ public class stepDefinitions {
         Boolean emailorphonefieldisPresent = driver.findElements(By.xpath("//*[@id=\"ap_email\"]")).size() > 0;
         if(emailorphonefieldisPresent = true){
             System.out.println("User is successfully asked for email or phone number");
+        } else {
+            System.out.println("User not asked for email or phone number");
         }
         driver.quit();
     }
