@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 
+
 import java.time.Duration;
 import java.util.List;
 
@@ -46,11 +47,11 @@ public class stepDefinitions {
     public void iNavigateToAmazonCa() {
         driver.get("https://www.amazon.ca/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         logger.info("Navigated to Amazon.ca");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"nav-logo-sprites\"]")));
         logger.info("Wait for page to full load");
@@ -80,10 +81,15 @@ public class stepDefinitions {
 
     @And("verify hamburger menu opens")
     public void verifyHamburgerMenuOpens() {
-        boolean isPresent = driver.findElements(By.xpath("//*[@id=\"nav-hamburger-menu\"]")).size() > 0;
-        if (!isPresent){
+        if(driver.findElements(By.xpath("//div[@id='nav-main']")).size() == 0){
+
             driver.navigate().refresh();
             logger.info("Hamburger menu did not open, refreshing");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         logger.info("Hamburger menu open successfully, continuing test steps");
     }
