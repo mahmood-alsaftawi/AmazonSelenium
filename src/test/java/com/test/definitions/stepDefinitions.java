@@ -19,6 +19,7 @@ import java.util.List;
 
 public class stepDefinitions {
 
+
     WebDriver driver = new ChromeDriver();
     Duration timeoutInSeconds = Duration.ofSeconds(10);
     WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -34,6 +35,7 @@ public class stepDefinitions {
     public void iLaunchChromeBrowser() {
         System.setProperty("webDriver.chrome.driver", "\"D:\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe\"" );
         logger.info("Chrome browser is launched");
+        driver.manage().window().maximize();
     }
 
     @When("I navigate to amazon.ca")
