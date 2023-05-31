@@ -106,20 +106,26 @@ public class stepDefinitions {
 
     @Then("click on Kindle under Kindle E-Readers")
     public void clickOnKindleUnderKindleEReaders() {
-        boolean kindleExists = driver.findElements(By.xpath("/html/body/div[3]/div[2]/div/ul[5]/li[3]/a")).size() > 0;
-        if (!kindleExists){
-            driver.findElement(By.xpath("/html/body/div[7]/div[2]/div/ul[4]/li[3]/a")).click();
-        }
-        else {
-            driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/ul[5]/li[3]/a")).click();
-        }
+        driver.findElement(By.xpath("//a[@class='hmenu-item' and text()='Kindle']")).click();
+/*        driver.findElement(By.xpath("//div[@id='hmenu-content']/ul[5]/li[3]/a[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"hmenu-content\"]/ul[4]/li[3]/a")).click();*/
         logger.info("Click on Kindle Options under Kindle E-Readers");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         logger.info("Wait for Kindle Page to render");
     }
 
     @Then("click Buy Now")
     public void clickBuyNow() {
-        driver.findElement(By.xpath("/html/body/div[4]/div[3]/div[4]/div[12]/div[1]/div[4]/div/div[1]/div/div/div/form/div[1]/div/div/div/div[3]/div/div[14]/div/div/span[2]/span/input")).click();
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.findElement(By.xpath("//input[@id='buy-now-button']")).click();
         logger.info("Click on Buy Now Options");
     }
 
